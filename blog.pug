@@ -1,0 +1,94 @@
+mixin article(title, description, src)
+    .article__wrapper
+        img.article__img(src=src, alt="Фотография статьи")
+        .article__info
+            .article__info__text
+                h3.article__info__text__title=title
+                p.article__info__text__description=description
+            .article__description
+                .article__description__author 
+                    p.article__description__author__name Samatha Leuthex
+                    p.article__description__author__date May 5, 3 min read
+                .article__description__share
+                    a#favorite(href="#")
+                        img(src="src/img/favorites.svg", alt="Избранное")
+                    a#share(href="#")
+                        img(src="src/img/share.svg", alt="Поделиться")
+
+mixin another_post(typePost)
+    .all-articles__another-posts__link-wrapper 
+        img.arrow(src="src/img/arrow.svg", alt="")
+        a.all-articles__another-posts__link(href="#")=typePost 
+
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href="src/css/style.css" rel="stylesheet" type="text/css")
+        title Blog
+    body
+        header#blog-header.common-header
+            include src/templates/nav.pug
+            .common__header__overlay
+            .common__header__about__wrapper
+                h1.common__header__about__title
+                    strong Blog Afrianska
+                p.common__header__about__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        section#find
+            form.find__form(action="") 
+                img#search-icon(src="src/img/search.svg", alt="Поиск")
+                input.find__form__input(type="text", placeholder="Search Article") 
+        section#popular-articles 
+            h4.articles__title 
+                strong Popular
+            .popular-articles__wrapper
+                article.popular-articles__article.common-article
+                    +article("Feugiat sodales at nullam tellus.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi posuere nibh tempor fringilla porta pellentesque ipsum.",
+                    "src/img/article_1.png")
+                article.popular-articles__article.common-article
+                    +article("Porta proin tellus sed pulvinar odio eu pulvinar.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    "src/img/article_2.png")
+                article.popular-articles__article.common-article
+                    +article("Non quam tortor, proin eu egestas scelerisque purus.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    "src/img/article_3.png")
+                article.popular-articles__article.common-article
+                    +article("Amet amet sed pharetra risus sit eget interdum.", 
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                    "src/img/article_4.png")
+            a(href="index.html")
+                strong See All Popular Article
+        .line
+        section#all-arcticles 
+            h4.articles__title 
+                strong all arcticle
+            .all-articles__wrapper
+                .all-articles__article.common-article
+                    +article("Massa eu in laoreet enim augue vulputate nunc.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus quisque magna in nisl nibh bibendum ipsum, elit duis. Donec.",
+                        "src/img/article_5.png")
+                .all-articles__article.common-article
+                    +article("Feugiat a euismod arcu feugiat posuere morbi.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus quisque magna in nisl nibh bibendum ipsum, elit duis. Donec.",
+                        "src/img/article_6.png")
+                .all-articles__article.common-article
+                    +article("Sociis purus pellentesque faucibus vitae et felis.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus quisque magna in nisl nibh bibendum ipsum, elit duis. Donec.",
+                        "src/img/article_7.png")
+                .all-articles__article.common-article
+                    +article("Cursus feugiat mi pellentesque mauris sed eu.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus quisque magna in nisl nibh bibendum ipsum, elit duis. Donec.",
+                        "src/img/article_8.png")
+                .all-articles__article.common-article
+                    +article("A morbi arcu curabitur etiam fringilla augue.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus quisque magna in nisl nibh bibendum ipsum, elit duis. Donec.",
+                        "src/img/article_9.png")
+            .all-articles__another-posts
+                +another_post("Old Post")
+                +another_post("New Post")  
+        include src/templates/footer.pug

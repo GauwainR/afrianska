@@ -1,0 +1,60 @@
+mixin contact(title, contactInfo1, contactInfo2, img_src1, img_src2)
+    .contact__wrapper
+        h4.contact__title
+            strong=title 
+        .contact__info 
+            img.contact__info__img(src=img_src1, alt="")
+            p.contact__info__description=contactInfo1
+        .contact__info 
+            img.contact__info__img(src=img_src2, alt="")
+            p.contact__info__description=contactInfo1
+        
+html(lang='en')
+    head
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href="src/css/style.css" rel="stylesheet" type="text/css")
+        title Contacts
+    body
+        header#blog-header.common-header
+            include src/templates/nav.pug
+            .common__header__overlay
+            .common__header__about__wrapper
+                h1.common__header__about__title
+                    strong Contact Us
+                p.common__header__about__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        section#contacts
+            .contacts__wrapper
+                .contacts__info
+                    img.contact__info__img(src="src/img/contacts.svg", alt="")
+                    .contact__info__wrapper
+                        h4.contact__title
+                            strong adress
+                        p.contact__info__description Id convallis placerat sit sed duis id amet volutpat quam a, pharetra.
+                    +contact("phone",
+                     "+62-812-7313-4321",
+                      "+62-817-000-1234",
+                      "src/img/phone.svg",
+                      "src/img/phone.svg")
+                    +contact("ONLINE SERVICE",
+                     "www.afrianska.com",
+                      "hello.afrian@gmail.com",
+                      "src/img/network.svg",
+                      "src/img/mail.svg")
+                .contacts__feedback
+                    form(action="")
+                        h4.contacts__feedback__title
+                            strong send us message
+                        label(for="") Full Name
+                        input(type="text", placeholder="Your Name")
+                        label(for="") Email
+                        input(type="email", placeholder="Your Email")
+                        label(for="") Message
+                        textarea(name="", cols="30", rows="10", placeholder="Your Message")
+                        button(type="submit") 
+                            strong submit
+                .contacts__map
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A03e5c91733588efa42fee1289b1f9986b88a06c29e4a2c49398698325de0b28b&amp;width=940&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        include src/templates/footer.pug
+
